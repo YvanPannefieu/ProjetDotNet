@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj": {}
+    "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj": {}
   },
   "projects": {
-    "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj": {
+    "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj",
+        "projectUniqueName": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj",
         "projectName": "VideoTheque",
-        "projectPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj",
+        "projectPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj",
         "packagesPath": "C:\\Users\\TP-Bluray\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\obj\\",
+        "outputPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\TP-Bluray\\AppData\\Roaming\\NuGet\\NuGet.Config",
