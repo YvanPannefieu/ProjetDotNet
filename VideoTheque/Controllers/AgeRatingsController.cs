@@ -1,11 +1,11 @@
-﻿namespace VideoTheque.Controllers
-{
-    using Mapster;
-    using Microsoft.AspNetCore.Mvc;
-    using VideoTheque.Businesses.AgeRatings;
-    using VideoTheque.DTOs;
-    using VideoTheque.ViewModels;
+﻿using Mapster;
+using Microsoft.AspNetCore.Mvc;
+using VideoTheque.Businesses.AgeRatings;
+using VideoTheque.DTOs;
+using VideoTheque.ViewModels;
 
+namespace VideoTheque.Controllers
+{
 
     [ApiController]
     [Route("age-ratings")]
