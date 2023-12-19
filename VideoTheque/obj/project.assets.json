@@ -3667,11 +3667,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj",
+      "projectUniqueName": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj",
       "projectName": "VideoTheque",
-      "projectPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\VideoTheque.csproj",
+      "projectPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\VideoTheque.csproj",
       "packagesPath": "C:\\Users\\TP-Bluray\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\ProjetDotNet\\VideoTheque\\obj\\",
+      "outputPath": "C:\\Users\\TP-Bluray\\Documents\\repos\\VideoTheque\\VideoTheque\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\TP-Bluray\\AppData\\Roaming\\NuGet\\NuGet.Config",
