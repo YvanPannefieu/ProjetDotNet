@@ -7,5 +7,10 @@
         public string LastName { get; set; }
         public string Nationality { get; set; }
         public DateTime BirthDay { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

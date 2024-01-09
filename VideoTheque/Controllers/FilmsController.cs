@@ -24,5 +24,12 @@ namespace VideoTheque.Controllers
 
         [HttpGet("{id}")]
         public async Task<FilmViewModel> GetFilm([FromRoute] int id) => _filmsBusiness.GetFilm(id).Adapt<FilmViewModel>();
+
+        [HttpPost]
+        public async Task<IResult> InsertFilm([FromBody] FilmViewModel filmVM)
+        {
+            var created = _filmsBusiness.InsertFilm(filmVM.Adapt<FilmDto>());
+            return Results.Created($"/films/{created.Id}", created);
+        }
     }
 }

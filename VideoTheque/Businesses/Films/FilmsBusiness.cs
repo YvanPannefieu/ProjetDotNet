@@ -6,6 +6,8 @@ using VideoTheque.Repositories.AgeRatings;
 using VideoTheque.Repositories.Genres;
 using VideoTheque.Repositories.Personnes;
 using VideoTheque.Businesses.Films;
+using VideoTheque.Core;
+using System.IO;
 
 namespace VideoTheque.Business
 {
@@ -41,43 +43,53 @@ namespace VideoTheque.Business
                 filmDtos.Add(new FilmDto
                 {
                     Id = bluRay.Id,
-                    Realisateur = director != null ? $"{director.FirstName} {director.LastName}" : "Unknown",
-                    Scenariste = scenarist != null ? $"{scenarist.FirstName} {scenarist.LastName}" : "Unknown",
+                    Realisateur = director,
+                    Scenariste = scenarist,
                     Duree = (int)bluRay.Duration,
                     Support = "Blu-Ray",
-                    AgeRating = ageRating != null ? ageRating.Name : "Unknown",
-                    Genre = genre != null ? genre.Name : "Unknown",
+                    AgeRating = ageRating,
+                    Genre = genre,
                     Titre = bluRay.Title,
-                    ActeurPrincipal = mainActor != null ? $"{mainActor.FirstName} {mainActor.LastName}" : "Unknown"
+                    ActeurPrincipal = mainActor
                 });
             }
 
             return filmDtos;
         }
 
-        public async Task<FilmDto> GetFilm(int bluRayId)
+        public FilmDto GetFilm(int id)
         {
-            var bluRay = await _bluRaysRepository.GetBluRay(bluRayId);
+            var bluRay = _bluRaysRepository.GetBluRay(id).Result;
             if (bluRay == null) throw new KeyNotFoundException("BluRay not found");
 
-            var director = await _personnesRepository.GetPersonne(bluRay.IdDirector);
-            var scenarist = await _personnesRepository.GetPersonne(bluRay.IdScenarist);
-            var mainActor = await _personnesRepository.GetPersonne(bluRay.IdFirstActor);
-            var genre = await _genresRepository.GetGenre(bluRay.IdGenre);
-            var ageRating = await _ageRatingsRepository.GetAgeRating(bluRay.IdAgeRating);
-            
+            var director = _personnesRepository.GetPersonne(bluRay.IdDirector).Result;
+            var scenarist = _personnesRepository.GetPersonne(bluRay.IdScenarist).Result;
+            var mainActor = _personnesRepository.GetPersonne(bluRay.IdFirstActor).Result;
+            var genre = _genresRepository.GetGenre(bluRay.IdGenre).Result;
+            var ageRating = _ageRatingsRepository.GetAgeRating(bluRay.IdAgeRating).Result;
+
             return new FilmDto
             {
-                Id = bluRayId,
-                Realisateur = director != null ? $"{director.FirstName} {director.LastName}" : "Unknown",
-                Scenariste = scenarist != null ? $"{scenarist.FirstName} {scenarist.LastName}" : "Unknown",
+                Id = id,
+                Realisateur = director,
+                Scenariste = scenarist,
                 Duree = (int)bluRay.Duration,
                 Support = "Blu-Ray",
-                AgeRating = ageRating != null ? ageRating.Name : "Unknown",
-                Genre = genre != null ? genre.Name : "Unknown",
+                AgeRating = ageRating,
+                Genre = genre,
                 Titre = bluRay.Title,
-                ActeurPrincipal = mainActor != null ? $"{mainActor.FirstName} {mainActor.LastName}" : "Unknown"
+                ActeurPrincipal = mainActor
             };
+        }
+
+        public FilmDto InsertFilm(FilmDto film)
+        {
+            if (_bluRaysRepository.InsertFilm(film).IsFaulted)
+            {
+                throw new InternalErrorException($"Erreur lors de l'insertion de {film.Titre}");
+            }
+
+            return film;
         }
     }
 }
